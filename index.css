@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Merienda:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+html{
+    font-size:10px;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    min-height:100vh;
+    background-color:rgba(0,0,0,1);
+    color:#fff;
+    font-family:'Cairo',sans-serif;
+}
+h1#main-title,.box,.sidebar{
+    transition:all 0.5s ease-in;
+}
+h1#main-title{
+    position:absolute;
+    font-size:4.5rem;
+    top:3.5rem;
+    -webkit-box-reflect:below -20px linear-gradient(transparent,rgba(0, 0, 5, 0.185));;
+
+  }
+.hidden{
+    transform:translateX(50rem);
+}
+.container{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    position:relative;
+    width:18rem;
+    height:28rem;
+    transform-style:preserve-3d;
+    transform-origin:center;
+    animation:rotate 20s linear infinite;
+    animation-play-state: running;
+  }
+.box >span,.box span img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.box >span{
+    transform-style:preserve-3d;
+    transform-origin:center;
+    transform:rotateY(calc(var(--i)*36deg)) translateZ(450px);
+    -webkit-box-reflect:below 0px linear-gradient(transparent, transparent,rgba(0, 0, 5, 0.336));;
+}
+.box span img{
+    cursor:pointer;
+    object-fit:cover;
+    transform-origin:center;
+    transition:all 0.3s ease-out;
+}
+@keyframes rotate{
+    0%{transform:perspective(1700px) rotateY(0);}
+    100%{transform:perspective(1700px) rotateY(360deg);}
+}
+.box span img:hover{
+    transform:scale(1.2);
+}
+
+/* sidebar */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    right:0;
+    width:50rem;
+    height:100vh;
+    background:#252525;
+    padding:5rem;
+    font-size:1.7rem;
+      overflow-y:scroll;
+}
+span.close{
+    font-size:2rem;
+    cursor:pointer;
+    position:absolute;
+    top:2rem;
+    left:2rem;
+}
+.rating,.release-date{
+    color:rgb(165, 165, 165);
+    font-size:1.8rem;
+}
+h1,h2{
+    font-family: 'Merienda', cursive;
+}
+.movie-title{
+    font-size:4rem;
+    margin:1.5rem auto 0;
+}
+.sidebar > img{
+    display:block;
+    margin:2rem 0;
+}
+h2{
+margin:1.5rem auto;
+}
