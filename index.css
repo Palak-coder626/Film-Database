@@ -14,18 +14,55 @@ body{
     color:#fff;
     font-family:'Cairo',sans-serif;
 }
-h1#main-title,.box,.sidebar{
+
+.searchbar > i,.box span img,span.close{
+    cursor:pointer;
+}
+h1#main-title,.box,.sidebar,.searchbar{
     transition:all 0.5s ease-in;
 }
 h1#main-title{
     position:absolute;
     font-size:4.5rem;
-    top:3.5rem;
-    -webkit-box-reflect:below -20px linear-gradient(transparent,rgba(0, 0, 5, 0.185));;
-
+    top:3rem;
+    user-select: none;
+    -webkit-box-reflect:below -20px linear-gradient(transparent, transparent,rgba(0, 0, 5, 0.336));
   }
 .hidden{
     transform:translateX(50rem);
+}
+/* Searchbar */
+
+.searchbar{
+    position:absolute;
+    top:16%;
+    display:inline-block;
+}
+.searchbar > input{
+    outline:none;
+    width:50rem;
+    height:5rem;
+    font-size:2.3rem;
+    font-family:'Cairo',sans-serif;
+    letter-spacing:0.2rem;
+    border:none;
+    background:none;
+    border-bottom:0.2rem solid rgba(255,255,255,0.6);
+    color:#fff;
+    transform-origin:center;
+    transition:all 0.5s ease;
+    margin-right:1rem;
+}
+.searchbar > input::selection{
+    background:rgba(255,255,255,0.5);
+    color:#fff;
+}
+.searchbar > i{
+    font-size:2.5rem;
+    color:rgba(255,255,255,0.6);
+}
+.searchbar > i:hover{
+    color:rgba(255,255,255,0.8);
 }
 .container{
     height:100vh;
@@ -36,8 +73,9 @@ h1#main-title{
 }
 .box{
     position:relative;
-    width:18rem;
-    height:28rem;
+    top:10%;
+    width:15rem;
+    height:26rem;
     transform-style:preserve-3d;
     transform-origin:center;
     animation:rotate 20s linear infinite;
@@ -53,11 +91,10 @@ h1#main-title{
 .box >span{
     transform-style:preserve-3d;
     transform-origin:center;
-    transform:rotateY(calc(var(--i)*36deg)) translateZ(450px);
-    -webkit-box-reflect:below 0px linear-gradient(transparent, transparent,rgba(0, 0, 5, 0.336));;
+    transform:rotateY(calc(var(--i)*36deg)) translateZ(420px);
+    -webkit-box-reflect:below 0px linear-gradient(transparent, transparent,rgba(0, 0, 5, 0.336));
 }
-.box span img{
-    cursor:pointer;
+.box span img,.movie-image{
     object-fit:cover;
     transform-origin:center;
     transition:all 0.3s ease-out;
@@ -81,11 +118,12 @@ h1#main-title{
     background:#252525;
     padding:5rem;
     font-size:1.7rem;
-      overflow-y:scroll;
+    overflow-y:scroll;
+    user-select: none;
 }
+
 span.close{
     font-size:2rem;
-    cursor:pointer;
     position:absolute;
     top:2rem;
     left:2rem;
