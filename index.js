@@ -39,7 +39,7 @@ const searchQuery = searchInput.value;
 const results = await fetchMovieDetails(searchQuery);
 const movieImages= document.querySelectorAll('.movie-image');
 for(let i=0;i<10;i++){
-    if(results[i].poster_path && results[i].vote_average>3){
+    if(i<results.length && results[i].poster_path && results[i].vote_average>3){
         setAttributes(movieImages[i],{
             'src':`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${results[i].poster_path}`,
             'alt':`${results[i].title}`,
